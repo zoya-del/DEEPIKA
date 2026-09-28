@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            background-color: #ffd1dc;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff0f3;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 25px rgba(255, 117, 140, 0.3);
+            max-width: 450px;
+            width: 100%;
+            display: none;
+            border: 2px solid #ffb3c1;
+        }
+        .active {
+            display: block;
+        }
+        h2, h1 {
+            color: #d81159;
+        }
+        input {
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #ff758c;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 80%;
+            outline: none;
+        }
+        button {
+            background-color: #ff758c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #d81159;
+        }
+        .gift-grid {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .gift-box {
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+        .content-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .letter-box {
+            font-style: italic;
+            color: #590d22;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lock Screen -->
+    <div class="container active" id="screen-lock">
+        <h2>Enter Our Secret Code 💖</h2>
+        <p style="font-size: 14px; color: #666;">(Ungaloda special date podaalam, eg: 143)</p>
+        <input type="password" id="passcode" placeholder="Enter PIN">
+        <br>
+        <button onclick="checkCode()">Unlock</button>
+    </div>
+
+    <!-- Main Surprise Hub -->
+    <div class="container" id="screen-main">
+        <h1>You Unlocked It! 🎉</h1>
+        <p>Your surprises are waiting for you, my love...</p>
+        
+        <div class="gift-grid">
+            <div class="gift-box" onclick="openSurprise('tulips')">🎁</div>
+            <div class="gift-box" onclick="openSurprise('music')">🎁</div>
+            <div class="gift-box" onclick="openSurprise('letter')">🎁</div>
+        </div>
+
+        <!-- Surprises Content -->
+        <div id="tulips" class="content-section">
+            <h3>🌷 Your Favorite Tulips</h3>
+            <p>You make my heart bloom. Life feels sweeter and warmer with you in it! Every single day, I choose you.</p>
+        </div>
+
+        <div id="music" class="content-section">
+            <h3>🎶 A Playlist Made For You</h3>
+            <p><b>Lover - Taylor Swift</b></p>
+            <audio controls style="width: 100%;">
+                <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div id="letter" class="content-section">
+            <h3>💌 A Letter From My Heart</h3>
+            <div class="letter-box">
+                <p>You make my life feel more beautiful and meaningful. I am so lucky to have you. I love you wholeheartedly, and I can't wait to continue loving you for the rest of my life. Thank you for being you and filling my heart with so much love. Always, forever yours ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            let code = document.getElementById('passcode').value;
+            // Inga ungaluku pidicha pin-ah change pannikalam (Current pin: 143)
+            if (code === '143') {
+                document.getElementById('screen-lock').classList.remove('active');
+                document.getElementById('screen-main').classList.add('active');
+            } else {
+                alert('Wrong Passcode! Try again ❤️');
+            }
+        }
+
+        function openSurprise(sectionId) {
+            // Ellam sections-ahum hide pannitu click pannatha mattum kaattum
+            document.querySelectorAll('.content-section').forEach(el => el.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
